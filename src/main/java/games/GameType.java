@@ -21,6 +21,7 @@ import games.connect4.gui.Connect4GUIManager;
 import games.diamant.*;
 import games.dominion.gui.DominionGUIManager;
 import games.dotsboxes.*;
+import games.easyboop.*;
 import games.explodingkittens.*;
 import games.explodingkittens.gui.ExplodingKittensGUIManager;
 import games.hanabi.HanabiForwardModel;
@@ -200,7 +201,11 @@ public enum GameType {
     ChineseCheckers(2, 6,
             Arrays.asList(Strategy, Abstract),
             Arrays.asList(GridMovement),
-            CCGameState.class, CCForwardModel.class, CCParameters.class, CCGUIManager.class);
+            CCGameState.class, CCForwardModel.class, CCParameters.class, CCGUIManager.class),
+    EasyBoop(2, 2,
+            Arrays.asList(Simple, Abstract),
+            Collections.singletonList(PatternBuilding),
+            EasyBoopGameState.class, EasyBoopForwardModel.class, EasyBoopGameParameters.class, EasyBoopGUIManager.class);
 
 
     // Core classes where the game is defined
