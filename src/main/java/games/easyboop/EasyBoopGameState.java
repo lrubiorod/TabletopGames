@@ -14,8 +14,7 @@ import java.util.Objects;
 public class EasyBoopGameState extends AbstractGameState {
 
     GridBoard<Token> gridBoard;
-    int n1; // Player1's pieces on the board
-    int n2; // Player2's pieces on the board
+    int[] piecesCounter;
 
     public EasyBoopGameState(AbstractParameters gameParameters, int nPlayers) {
         super(gameParameters, nPlayers);
@@ -35,8 +34,7 @@ public class EasyBoopGameState extends AbstractGameState {
     protected AbstractGameState _copy(int playerId) {
         EasyBoopGameState copy = new EasyBoopGameState(gameParameters.copy(), getNPlayers());
         copy.gridBoard = gridBoard.copy();
-        copy.n1 = n1;
-        copy.n2 = n2;
+        copy.piecesCounter = piecesCounter.clone();
 
         return copy;
     }
@@ -63,7 +61,7 @@ public class EasyBoopGameState extends AbstractGameState {
         if (!(o instanceof EasyBoopGameState)) return false;
         if (!super.equals(o)) return false;
         EasyBoopGameState that = (EasyBoopGameState) o;
-        return Objects.equals(gridBoard, that.gridBoard) && n1 == that.n1 && n2 == that.n2;
+        return Objects.equals(gridBoard, that.gridBoard) && Objects.equals(piecesCounter, that.piecesCounter);
     }
 
     @Override

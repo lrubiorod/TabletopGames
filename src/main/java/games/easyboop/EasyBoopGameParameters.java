@@ -7,6 +7,7 @@ import java.util.Objects;
 public class EasyBoopGameParameters extends AbstractParameters {
 
     public int gridSize = 6;
+    public int winCount = 3;
 
     public EasyBoopGameParameters() {
     }
@@ -15,6 +16,7 @@ public class EasyBoopGameParameters extends AbstractParameters {
     protected AbstractParameters _copy() {
         EasyBoopGameParameters copy = new EasyBoopGameParameters();
         copy.gridSize = gridSize;
+        copy.winCount = winCount;
 
         return copy;
     }
@@ -25,7 +27,7 @@ public class EasyBoopGameParameters extends AbstractParameters {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         EasyBoopGameParameters that = (EasyBoopGameParameters) o;
-        return gridSize == that.gridSize;
+        return (gridSize == that.gridSize) && (winCount == that.winCount);
     }
 
     @Override
