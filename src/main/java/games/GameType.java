@@ -22,6 +22,7 @@ import games.diamant.*;
 import games.dominion.gui.DominionGUIManager;
 import games.dotsboxes.*;
 import games.easyboop.*;
+import games.easyboop.gui.EasyBoopGUIManager;
 import games.explodingkittens.*;
 import games.explodingkittens.gui.ExplodingKittensGUIManager;
 import games.hanabi.HanabiForwardModel;

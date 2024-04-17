@@ -5,13 +5,15 @@ import core.AbstractParameters;
 import core.components.Component;
 import core.components.GridBoard;
 import core.components.Token;
+import core.interfaces.IGridGameState;
+import core.interfaces.IPrintable;
 import games.GameType;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class EasyBoopGameState extends AbstractGameState {
+public class EasyBoopGameState extends AbstractGameState implements IPrintable, IGridGameState<Token> {
 
     GridBoard<Token> gridBoard;
     int[] piecesCounter;
@@ -76,5 +78,20 @@ public class EasyBoopGameState extends AbstractGameState {
             sb.append("\n");
         }
         return sb.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), gridBoard);
+    }
+
+    @Override
+    public GridBoard<Token> getGridBoard() {
+        return gridBoard;
+    }
+
+    @Override
+    public void printToConsole() {
+        System.out.println(gridBoard.toString());
     }
 }
