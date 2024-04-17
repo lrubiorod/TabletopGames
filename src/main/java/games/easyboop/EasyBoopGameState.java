@@ -54,7 +54,7 @@ public class EasyBoopGameState extends AbstractGameState implements IPrintable, 
 
     @Override
     public double getGameScore(int playerId) {
-        return 0;
+        return playerResults[playerId].value;
     }
 
     @Override
@@ -68,16 +68,11 @@ public class EasyBoopGameState extends AbstractGameState implements IPrintable, 
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("    0   1   2   3   4   5\n");
-        for (int i = 0; i < gridBoard.getHeight(); i++) {
-            sb.append(i).append(" | ");
-            for (int j = 0; j < gridBoard.getWidth(); j++) {
-                sb.append(gridBoard.getElement(i, j)).append(" | ");
-            }
-            sb.append("\n");
-        }
-        return sb.toString();
+        return Objects.hash(gameParameters) + "|" +
+                Objects.hash(getAllComponents()) + "|" +
+                Objects.hash(gameStatus) + "|" +
+                Objects.hash(gamePhase) + "|*|" +
+                Objects.hash(gridBoard);
     }
 
     @Override
